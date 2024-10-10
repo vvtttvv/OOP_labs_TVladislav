@@ -9,10 +9,10 @@ import java.io.File
 fun main() {
     // Variables for reading a file
     val objectMapper = ObjectMapper()
-    val jsonFilePath = "src/main/resources/test-input.json"
+    //Change to your file for testing
+    val jsonFilePath = "src/main/resources/input.json"
     val jsonFileReader = JsonFileReader(jsonFilePath)
     val dataNodes = jsonFileReader.readJsonFile()
-    jsonFileReader.readJsonFile()
 
     // Variables to realize the main logic of verification
     val universeContainer = UniverseContainer()
@@ -32,39 +32,64 @@ fun main() {
     universeContainer.addUniverseWithPlanets(hitchHiker, hitchHikerPlanets)
     universeContainer.addUniverseWithPlanets(rings, ringsPlanets)
 
-    universeContainer.displayUniverses()
-
     // Working with every object of the JSON file
     dataNodes.forEach { node ->
         println(node)
         val planetName = node.get("planet")?.asText()
+        val isHumanoid = node.get("isHumanoid")?.asBoolean() ?: false
+        val traits = node.get("traits")?.map { it.asText() }
+        val age = node.get("age")?.asInt()
+        // Here I implemented checking for planets, because we have specific planets for universes
         if (planetName != null) {
             when {
-                marvelPlanets.planets.contains(planetName) -> {
+                universeContainer.getPlanetsByUniverse("marvel")?.contains(planetName) == true -> {
                     println("This planet is from Marvel universe: $planetName")
                     marvel.individuals.add(node)
+                    return@forEach
                 }
-                starwarsPlanets.planets.contains(planetName) -> {
+                universeContainer.getPlanetsByUniverse("starWars")?.contains(planetName) == true -> {
                     println("This planet is from Star Wars universe: $planetName")
                     starWars.individuals.add(node)
+                    return@forEach
                 }
-                hitchHikerPlanets.planets.contains(planetName) -> {
+                universeContainer.getPlanetsByUniverse("hitchHiker")?.contains(planetName) == true -> {
                     println("This planet is from Hitchhiker universe: $planetName")
                     hitchHiker.individuals.add(node)
-                }
-                ringsPlanets.planets.contains(planetName) -> {
-                    println("This planet is from Rings universe: $planetName")
-                    rings.individuals.add(node)
+                    return@forEach
                 }
             }
         }
-        when (readlnOrNull()) {
-            "1" -> starWars.individuals.add(node)
-            "2" -> hitchHiker.individuals.add(node)
-            "3" -> rings.individuals.add(node)
-            "4" -> marvel.individuals.add(node)
+        //Here I check traits
+        if (traits != null) {
+            if (traits.contains("HAIRY")) {
+                println("This creature is wookie!")
+                starWars.individuals.add(node)
+                return@forEach
+            } else if (traits.contains("BLONDE") && traits.contains("TALL")) {
+                println("This is TOR!")
+                marvel.individuals.add(node)
+                return@forEach
+            } else if ((traits.contains("EXTRA_HEAD") || traits.contains("EXTRA_ARMS"))||(traits.contains("BULKY"))){
+                println("Idk nothing about Hitchhiker's Guide to the Galaxy but as I understand it is from here")
+                hitchHiker.individuals.add(node)
+                return@forEach
+            } else if (!isHumanoid && traits.contains("GREEN")){
+                println("It can be baby Yoda!")
+                starWars.individuals.add(node)
+                return@forEach
+            }
+        }
+        // Here I check some other combinations
+        if (isHumanoid && age != null && age>1000 || (traits != null && traits.contains("POINTY_EARS"))) {
+            println("It's Legolas!")
+            rings.individuals.add(node)
+            return@forEach
         }
     }
+    println(starWars)
+    println(marvel)
+    println(hitchHiker)
+    println(rings)
     /*
     File("src/main/resources/output/starwars.json").writeText(objectMapper.writeValueAsString(starWars))
     File("src/main/resources/output/hitchhiker.json").writeText(objectMapper.writeValueAsString(hitchHiker))

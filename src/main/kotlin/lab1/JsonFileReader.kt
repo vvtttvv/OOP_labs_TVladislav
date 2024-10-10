@@ -11,7 +11,6 @@ class JsonFileReader(private val filePath: String) {
     fun readJsonFile(): List<JsonNode> {
         val jsonNode = objectMapper.readTree(file)
         println("File read successfully.")
-        println(jsonNode.toPrettyString())
         return jsonNode["data"].map { it }
     }
 }
