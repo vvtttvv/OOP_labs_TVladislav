@@ -1,1 +1,47 @@
-{"name":"hitchHiker","individuals":[{"id":3,"isHumanoid":true,"age":7523},{"id":4,"age":26,"traits":["EXTRA_ARMS"]},{"id":5,"isHumanoid":false,"traits":["BULKY"]}]}
+{
+  "name" : "hitchHiker",
+  "individuals" : [ {
+    "id" : 1,
+    "isHumanoid" : true,
+    "planet" : "Betelgeuse",
+    "age" : 59,
+    "traits" : [ "EXTRA_ARMS", "EXTRA_HEAD" ]
+  }, {
+    "id" : 2,
+    "isHumanoid" : false,
+    "traits" : [ "BULKY" ]
+  }, {
+    "id" : 4,
+    "planet" : "Earth",
+    "traits" : [ "SHORT", "BULKY" ]
+  }, {
+    "id" : 5,
+    "isHumanoid" : true,
+    "traits" : [ "BULKY" ]
+  }, {
+    "id" : 6,
+    "age" : 26,
+    "traits" : [ "EXTRA_ARMS" ]
+  }, {
+    "id" : 8,
+    "age" : 82,
+    "traits" : [ "EXTRA_HEAD" ]
+  }, {
+    "id" : 9,
+    "isHumanoid" : true,
+    "planet" : "Earth",
+    "age" : 124,
+    "traits" : [ "SHORT", "BULKY" ]
+  }, {
+    "id" : 16,
+    "isHumanoid" : false,
+    "planet" : "Vogsphere",
+    "age" : 128,
+    "traits" : [ "GREEN", "BULKY" ]
+  }, {
+    "id" : 21,
+    "planet" : "Betelgeuse",
+    "age" : 45,
+    "traits" : [ "EXTRA_ARMS", "EXTRA_HEAD" ]
+  } ]
+}

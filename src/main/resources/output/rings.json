@@ -1,1 +1,14 @@
-{"name":"rings","individuals":[]}
+{
+  "name" : "rings",
+  "individuals" : [ {
+    "id" : 14,
+    "isHumanoid" : true,
+    "age" : 7523
+  }, {
+    "id" : 19,
+    "isHumanoid" : true,
+    "planet" : "Earth",
+    "age" : 451,
+    "traits" : [ "BLONDE", "POINTY_EARS" ]
+  } ]
+}

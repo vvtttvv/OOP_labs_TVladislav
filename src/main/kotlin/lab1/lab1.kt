@@ -2,8 +2,6 @@ package lab1
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
-import kotlinx.serialization.Contextual
-import kotlinx.serialization.Serializable
 import java.io.File
 
 fun main() {
@@ -86,16 +84,14 @@ fun main() {
             return@forEach
         }
     }
-    println(starWars)
-    println(marvel)
-    println(hitchHiker)
-    println(rings)
-    /*
-    File("src/main/resources/output/starwars.json").writeText(objectMapper.writeValueAsString(starWars))
-    File("src/main/resources/output/hitchhiker.json").writeText(objectMapper.writeValueAsString(hitchHiker))
-    File("src/main/resources/output/rings.json").writeText(objectMapper.writeValueAsString(rings))
-    File("src/main/resources/output/marvel.json").writeText(objectMapper.writeValueAsString(starWars))
-    */
+
+    // Saving the files with pretty printing
+    File("src/main/resources/output/starwars.json").writeText(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(starWars))
+    File("src/main/resources/output/hitchhiker.json").writeText(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(hitchHiker))
+    File("src/main/resources/output/rings.json").writeText(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(rings))
+    File("src/main/resources/output/marvel.json").writeText(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(marvel))
+
+
 }
 
 data class Universe(val name: String, val individuals: MutableList<JsonNode>)
