@@ -37,8 +37,12 @@ fun main() {
         val isHumanoid = node.get("isHumanoid")?.asBoolean() ?: false
         val traits = node.get("traits")?.map { it.asText() }
         val age = node.get("age")?.asInt()
+
+        // Creating Node object
+        val individual = Node(isHumanoid, planetName, age, traits)
+
         // Here I implemented checking for planets, because we have specific planets for universes
-        if (planetName != null) {
+        if (individual.planetName != null) {
             when {
                 universeContainer.getPlanetsByUniverse("marvel")?.contains(planetName) == true -> {
                     println("This planet is from Marvel universe: $planetName")
@@ -58,27 +62,27 @@ fun main() {
             }
         }
         //Here I check traits
-        if (traits != null) {
-            if (traits.contains("HAIRY")) {
+        if (individual.traits != null) {
+            if (individual.traits.contains("HAIRY")) {
                 println("This creature is wookie!")
                 starWars.individuals.add(node)
                 return@forEach
-            } else if (traits.contains("BLONDE") && traits.contains("TALL")) {
+            } else if (individual.traits.contains("BLONDE") && individual.traits.contains("TALL")) {
                 println("This is TOR!")
                 marvel.individuals.add(node)
                 return@forEach
-            } else if ((traits.contains("EXTRA_HEAD") || traits.contains("EXTRA_ARMS"))||(traits.contains("BULKY"))){
+            } else if ((individual.traits.contains("EXTRA_HEAD") || individual.traits.contains("EXTRA_ARMS"))||(individual.traits.contains("BULKY"))){
                 println("Idk nothing about Hitchhiker's Guide to the Galaxy but as I understand it is from here")
                 hitchHiker.individuals.add(node)
                 return@forEach
-            } else if (!isHumanoid && traits.contains("GREEN")){
+            } else if (!isHumanoid && individual.traits.contains("GREEN")){
                 println("It can be baby Yoda!")
                 starWars.individuals.add(node)
                 return@forEach
             }
         }
         // Here I check some other combinations
-        if (isHumanoid && age != null && age>1000 || (traits != null && traits.contains("POINTY_EARS"))) {
+        if (individual.isHumanoid && individual.age != null && individual.age>1000 || (traits != null && traits.contains("POINTY_EARS"))) {
             println("It's Legolas!")
             rings.individuals.add(node)
             return@forEach
@@ -93,6 +97,13 @@ fun main() {
 
 
 }
+
+class Node (
+    val isHumanoid: Boolean,
+    val planetName: String?,
+    val age: Int?,
+    val traits: List<String>?
+)
 
 data class Universe(val name: String, val individuals: MutableList<JsonNode>)
 class Planets(var planets: Array<String>)
