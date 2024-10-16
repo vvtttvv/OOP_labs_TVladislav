@@ -7,33 +7,28 @@
     "age" : 253,
     "traits" : [ "HAIRY", "TALL" ]
   }, {
-    "id" : 3,
-    "isHumanoid" : false,
-    "age" : 253,
-    "traits" : [ "HAIRY", "TALL" ]
-  }, {
-    "id" : 10,
-    "planet" : "Endor"
-  }, {
-    "id" : 11,
-    "isHumanoid" : false,
-    "age" : 128,
-    "traits" : [ "GREEN" ]
-  }, {
-    "id" : 12,
+    "id" : 1,
     "isHumanoid" : false,
     "planet" : "Endor",
     "age" : 34,
     "traits" : [ "HAIRY", "SHORT" ]
   }, {
-    "id" : 13,
+    "id" : 7,
     "planet" : "Kashyyyk",
     "age" : 352,
     "traits" : [ "HAIRY", "TALL" ]
   }, {
-    "id" : 20,
+    "id" : 8,
     "isHumanoid" : false,
     "planet" : "Endor",
     "age" : 22
+  }, {
+    "id" : 14,
+    "isHumanoid" : false,
+    "age" : 253,
+    "traits" : [ "HAIRY", "TALL" ]
+  }, {
+    "id" : 15,
+    "planet" : "Endor"
   } ]
 }
