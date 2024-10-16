@@ -15,17 +15,15 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-// Установка версии JVM для Kotlin
 kotlin {
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(22)) // Устанавливаем JVM версии 22
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(22))
     }
 }
 
-// Установка версии JVM для Java
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(22)) // Устанавливаем ту же версию JVM для Java
+        languageVersion.set(JavaLanguageVersion.of(22))
     }
 }
 
