@@ -30,5 +30,8 @@
     "id" : 20,
     "isHumanoid" : true,
     "traits" : [ "BULKY" ]
+  }, {
+    "id" : 24,
+    "age" : 5002
   } ]
 }
