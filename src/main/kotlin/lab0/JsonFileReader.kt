@@ -1,17 +1,16 @@
-package lab1
+package lab0
 
 import com.fasterxml.jackson.databind.JsonNode
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.io.File
 
 class JsonFileReader() {
-    private val jsonFilePath = "src/main/resources/input.json"
     private val objectMapper: ObjectMapper = ObjectMapper()
-    private val file = File(jsonFilePath)
 
-    fun readJsonFile(): List<JsonNode> {
+    fun readJsonFile(path: String, node: String): List<JsonNode> {
+        val file = File(path)
         val jsonNode = objectMapper.readTree(file)
         println("File read successfully.")
-        return jsonNode["input"].map { it }
+        return jsonNode[node].map { it }
     }
 }

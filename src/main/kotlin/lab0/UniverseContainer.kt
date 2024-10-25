@@ -1,4 +1,4 @@
-package lab1
+package lab0
 
 import com.fasterxml.jackson.databind.JsonNode
 

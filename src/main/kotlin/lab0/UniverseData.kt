@@ -1,4 +1,4 @@
-package lab1
+package lab0
 
 object UniverseData {
     // All races

@@ -1,8 +1,8 @@
-package lab1
+package lab0
 
 //Selected object to have opportunity to use function immediately
 object CreatureMatcher {
-    fun matches(creature: Creatures, individual: Node): Boolean {
+    fun matches(creature: Creatures, individual: Individual): Boolean {
         return  creature.planet == individual.planetName ||
                 (individual.traits?.all { it in creature.traits } == true &&
                         creature.isHumanoid == (individual.isHumanoid ?: creature.isHumanoid) &&

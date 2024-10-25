@@ -1,6 +1,4 @@
-package lab1
-
-import com.fasterxml.jackson.databind.JsonNode
+package lab0
 
 //For already known races
 class Creatures(
@@ -11,7 +9,7 @@ class Creatures(
 )
 
 //To get current node
-class Node (
+data class Individual (
     val isHumanoid: Boolean?,
     val planetName: String?,
     val age: Int?,

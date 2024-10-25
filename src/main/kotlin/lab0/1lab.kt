@@ -1,11 +1,11 @@
-package lab1
+package lab0
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import java.io.File
 
 fun main() {
     val jsonFileReader = JsonFileReader()
-    val dataNodes = jsonFileReader.readJsonFile()
+    val dataNodes = jsonFileReader.readJsonFile("src/main/resources/input.json", "input")
 
     // Accessing races and universes from the UniverseData object
     val belongings = UniverseData.belongings
@@ -16,7 +16,7 @@ fun main() {
         val isHumanoid = node.get("isHumanoid")?.asBoolean()
         val traits = node.get("traits")?.map { it.asText() }
         val age = node.get("age")?.asInt()
-        val individual = Node(isHumanoid, planetName, age, traits)
+        val individual = Individual(isHumanoid, planetName, age, traits)
 
         // Check to which universe the individual belongs
         val matchedBelonging = belongings.find {
