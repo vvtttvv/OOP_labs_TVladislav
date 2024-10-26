@@ -19,6 +19,7 @@ class TextData(private val fileName: String, private val text: String) {
     private fun getLongestWord() = longestWord
 
     fun textData(): String {
+        println("")
         return """
             File Name: ${getFilename()}
             File Text: ${getText()}
