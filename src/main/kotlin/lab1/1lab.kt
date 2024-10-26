@@ -13,31 +13,61 @@ fun main(args: Array<String>) {
     println("\nComparing 1 object with 3")
     display1.compareWithMonitor(display3)
 
-    // Day 2
+    // Day 2 & 4
     if (args.isEmpty()) {
         println("\nPlease provide the file path as a command-line argument.")
         return
     }
 
-    val filePath = args[0]
-    val fileReader = FileReader()
-    val text = fileReader.readFileIntoString(filePath)
-    val textData = TextData(filePath, text)
-    val showInfo = textData.textData() // I could choose not to use this variable, but linter forces me to
-    println(showInfo)
+    for (filePath in args) {
+        println("\nProcessing file: $filePath")
+        val fileReader = FileReader()
+        val text = fileReader.readFileIntoString(filePath)
+        val textData = TextData(filePath, text)
+        println(textData.textData())
+    }
 
     // Day 3
-    val assistant = Assistant("HelperBot")
+    val assistant = Assistant("SadHelper")
+
     assistant.assignDisplay(display1, display2, display3)
 
-    println("\nAssistant is comparing displays:")
-    assistant.assist()
 
-    println("\nBuying a display:")
-    val boughtDisplay = assistant.buyDisplay(display2)
-    if (boughtDisplay != null) {
-        println("Bought display: $boughtDisplay")
-    } else {
-        println("Display not found for purchase.")
+    while (true) {
+        println("\nMenu:")
+        println("1. Compare Displays")
+        println("2. Buy Display")
+        println("3. Exit")
+
+        print("Enter your choice: ")
+        val choice = readlnOrNull()
+
+        when (choice) {
+            "1" -> {
+                println("\nComparing Displays:")
+                assistant.assist()
+            }
+
+            "2" -> {
+                println("\nBuying a display:")
+                println("Choose a display to buy (0 to ${assistant.assignedDisplays.size - 1}):")
+                val selectedDisplay = readlnOrNull()?.toIntOrNull()
+                if (selectedDisplay != null && selectedDisplay in 0 until assistant.assignedDisplays.size) {
+                    val boughtDisplay = assistant.buyDisplay(assistant.assignedDisplays[selectedDisplay])
+                    if (boughtDisplay != null) {
+                        println("Bought display: $boughtDisplay")
+                    } else {
+                        println("Display not found for purchase.")
+                    }
+                } else {
+                    println("Invalid display selection.")
+                }
+            }
+
+            else -> {
+                println("Exiting the session.")
+                return
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 package lab1
 
 class Assistant(private val assistantName: String) {
-    private val assignedDisplays = mutableListOf<Display>()
+    val assignedDisplays = mutableListOf<Display>()
 
     fun assignDisplay(vararg displays: Display) {
         assignedDisplays.addAll(displays)
@@ -9,10 +9,11 @@ class Assistant(private val assistantName: String) {
 
     fun assist() {
         if (assignedDisplays.isEmpty()) {
-            println("$assistantName has no displays assigned to assist with.")
+            println("\n $assistantName has no displays assigned to assist with.")
             return
         }
 
+        println("\nHello, I'm $assistantName and i will help you... Probably...")
         println("Starting assistance for ${assignedDisplays.size} displays.")
         for (i in 0 until assignedDisplays.size - 1) {
             val currentDisplay = assignedDisplays[i]
