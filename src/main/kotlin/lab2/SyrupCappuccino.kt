@@ -4,5 +4,10 @@ class SyrupCappuccino(
     coffeeIntensity: Intensity,
     name: String = "SyrupCappuccino",
     mlOfMilk: Int,
-    val syrup: SyrupType
-) : Cappuccino(coffeeIntensity, name, mlOfMilk,)
+    private val syrup: SyrupType
+) : Cappuccino(coffeeIntensity, name, mlOfMilk,){
+    override fun printCoffeeDetails() {
+        super.printCoffeeDetails()
+        println("It also has $syrup syrup")
+    }
+}

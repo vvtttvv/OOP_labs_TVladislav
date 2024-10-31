@@ -2,5 +2,10 @@ package lab2
 
 class Americano(
     coffeeIntensity: Intensity,
-    val mlOfWater: Int
-) : Coffee(coffeeIntensity, name = "Americano")
+    private val mlOfWater: Int
+) : Coffee(coffeeIntensity, name = "Americano"){
+    override fun printCoffeeDetails() {
+        super.printCoffeeDetails()
+        println("It has: $mlOfWater ml of water")
+    }
+}
