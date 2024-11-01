@@ -2,9 +2,11 @@ package lab2
 
 fun main() {
     val cappuccino = Cappuccino(coffeeIntensity = Intensity.LIGHT, mlOfMilk = 45)
-    cappuccino.printCoffeeDetails()
+    cappuccino.makeCappuccino()
     val pumpkinSpiceLatte = PumpkinSpiceLatte(coffeeIntensity = Intensity.NORMAL, mlOfMilk = 45, mgOfPumpkinSpice=45)
-    pumpkinSpiceLatte.printCoffeeDetails()
+    pumpkinSpiceLatte.makePumpkinSpiceLatte()
     val syrupCappuccino = SyrupCappuccino(coffeeIntensity = Intensity.NORMAL, mlOfMilk = 45, syrup = SyrupType.CARAMEL)
-    syrupCappuccino.printCoffeeDetails()
+    syrupCappuccino.makeSyrupCappuccino()
+    val americano = Americano(coffeeIntensity = Intensity.STRONG, mlOfWater = 55)
+    americano.makeAmericano()
 }

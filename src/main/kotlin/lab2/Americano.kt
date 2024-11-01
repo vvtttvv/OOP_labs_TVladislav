@@ -4,8 +4,9 @@ class Americano(
     coffeeIntensity: Intensity,
     private val mlOfWater: Int
 ) : Coffee(coffeeIntensity, name = "Americano"){
-    override fun printCoffeeDetails() {
+    fun makeAmericano() {
         super.printCoffeeDetails()
-        println("It has: $mlOfWater ml of water")
+        println("Adding $mlOfWater ml of water")
+        println("Ding, dang! Americano is done!")
     }
 }

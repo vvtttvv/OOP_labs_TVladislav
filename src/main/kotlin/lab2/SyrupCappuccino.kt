@@ -6,8 +6,9 @@ class SyrupCappuccino(
     mlOfMilk: Int,
     private val syrup: SyrupType
 ) : Cappuccino(coffeeIntensity, name, mlOfMilk,){
-    override fun printCoffeeDetails() {
+    fun makeSyrupCappuccino() {
         super.printCoffeeDetails()
-        println("It also has $syrup syrup")
+        println("Adding $syrup syrup")
+        println("Ding, dang! Syrup Cappuccino is done!")
     }
 }

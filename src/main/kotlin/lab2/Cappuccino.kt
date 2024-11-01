@@ -5,8 +5,9 @@ open class Cappuccino(
     name: String = "Cappuccino",
     val mlOfMilk: Int
 ) : Coffee(coffeeIntensity, name){
-    override fun printCoffeeDetails(){
+    fun makeCappuccino(){
         super.printCoffeeDetails()
-        println("It has: $mlOfMilk ml")
+        println("Adding $mlOfMilk ml of milk")
+        println("Ding, dang! Cappuccino is done!")
     }
 }

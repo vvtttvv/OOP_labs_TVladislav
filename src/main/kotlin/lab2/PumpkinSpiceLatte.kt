@@ -6,10 +6,11 @@ class PumpkinSpiceLatte(
     mlOfMilk: Int,
     private val mgOfPumpkinSpice: Int
 ) : Cappuccino(coffeeIntensity, name, mlOfMilk){
-    override fun printCoffeeDetails() {
+    fun makePumpkinSpiceLatte() {
         super.printCoffeeDetails()
-        println("It has $mgOfPumpkinSpice mg")
+        println("Adding $mgOfPumpkinSpice mg of spice")
+        println("Ding, dang! Pumpkin Spice Latte is done!")
     }
 }
 
-// !!! Not forget to ask Mr. Domenic about the best way of solving conflicts, with override or with arguments as I did
+// !!! Not forget to ask Mr. Domenic about the best way of solving conflicts, with override or putting in arguments as I did
