@@ -13,7 +13,6 @@ class CircularQueue<T>(private val capacity: Int) : Queue<T> {
         count++
     }
 
-    @Suppress("UNCHECKED_CAST")
     override fun dequeue(): T? {
         if (count == 0) return null
         val item = items[head] as T
@@ -23,7 +22,6 @@ class CircularQueue<T>(private val capacity: Int) : Queue<T> {
         return item
     }
 
-    @Suppress("UNCHECKED_CAST")
     override fun peek(): T? {
         return if (count == 0) null else items[head] as T
     }
