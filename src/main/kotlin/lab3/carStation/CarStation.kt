@@ -11,12 +11,10 @@ class CarStation(
 
     fun serveCars() {
         while (!queue.isEmpty()) {
-
             val car = queue.dequeue()
             if (car!!.isDining) {
                 diningService.serveDinner(car.id)
             }
-
             refuelingService.refuel(car.id)
         }
     }

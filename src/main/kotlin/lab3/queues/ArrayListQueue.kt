@@ -1,17 +1,17 @@
 package lab3
 
-class ArrayListQueue<T> : Queue<T> {
-    private val items = mutableListOf<T>()
+class ArrayListQueue<Car> : Queue<Car> {
+    private val items = mutableListOf<Car>()
 
-    override fun enqueue(item: T) {
+    override fun enqueue(item: Car) {
         items.add(item)
     }
 
-    override fun dequeue(): T? {
+    override fun dequeue(): Car? {
         return if (items.isEmpty()) null else items.removeAt(0)
     }
 
-    override fun peek(): T? {
+    override fun peek(): Car? {
         return items.firstOrNull()
     }
 

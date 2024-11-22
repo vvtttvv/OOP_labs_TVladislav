@@ -1,9 +1,9 @@
 package lab3
 
-interface Queue<T> {
-    fun enqueue(item: T)
-    fun dequeue(): T?
-    fun peek(): T?
+interface Queue<Car> {
+    fun enqueue(item: Car)
+    fun dequeue(): Car?
+    fun peek(): Car?
     fun size(): Int
     fun isEmpty(): Boolean
 }

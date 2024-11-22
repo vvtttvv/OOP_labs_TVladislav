@@ -1,7 +1,7 @@
 package lab3
 
 class CircularQueue<T>(private val capacity: Int) : Queue<T> {
-    private val items = arrayOfNulls<Any>(capacity)
+    private val items = MutableList<T?>(capacity) { null }
     private var head = 0
     private var tail = 0
     private var count = 0
@@ -15,7 +15,7 @@ class CircularQueue<T>(private val capacity: Int) : Queue<T> {
 
     override fun dequeue(): T? {
         if (count == 0) return null
-        val item = items[head] as T
+        val item = items[head]
         items[head] = null
         head = (head + 1) % capacity
         count--
@@ -23,7 +23,7 @@ class CircularQueue<T>(private val capacity: Int) : Queue<T> {
     }
 
     override fun peek(): T? {
-        return if (count == 0) null else items[head] as T
+        return if (count == 0) null else items[head]
     }
 
     override fun size(): Int {

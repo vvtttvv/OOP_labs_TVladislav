@@ -1,17 +1,17 @@
 package lab3
 
-class LinkedListQueue<T> : Queue<T> {
-    private val items = ArrayDeque<T>()
+class LinkedListQueue<Car> : Queue<Car> {
+    private val items = ArrayDeque<Car>()
 
-    override fun enqueue(item: T) {
+    override fun enqueue(item: Car) {
         items.addLast(item)
     }
 
-    override fun dequeue(): T? {
+    override fun dequeue(): Car? {
         return if (items.isEmpty()) null else items.removeFirst()
     }
 
-    override fun peek(): T? {
+    override fun peek(): Car? {
         return items.firstOrNull()
     }
 
