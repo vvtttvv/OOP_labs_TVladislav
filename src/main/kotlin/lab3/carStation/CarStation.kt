@@ -15,7 +15,7 @@ class CarStation(
             if (car!!.isDining) {
                 diningService.serveDinner(car.id)
             }
-            refuelingService.refuel(car.id)
+            refuelingService.refuel(car.id, car.consumption, car.passengers)
         }
     }
 }

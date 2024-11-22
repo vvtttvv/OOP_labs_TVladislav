@@ -8,12 +8,12 @@ fun testStations() {
     val peopleDinner = PeopleDinner()
     val robotDinner = RobotDinner()
 
-    electricStation.refuel(1)
-    gasStation.refuel(2)
-    gasStation.refuel(3)
+    electricStation.refuel(1, 15, "PEOPLE")
+    gasStation.refuel(2, 15, "PEOPLE")
+    gasStation.refuel(3, 15, "PEOPLE")
     peopleDinner.serveDinner(2)
     robotDinner.serveDinner(3)
-    electricStation.refuel(4)
+    electricStation.refuel(4, 15, "PEOPLE")
     robotDinner.serveDinner(1)
 
     Statistics.printStats()
